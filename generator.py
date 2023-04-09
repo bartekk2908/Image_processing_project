@@ -259,7 +259,7 @@ if __name__ == "__main__":
     ob_min_size_per = 0.006  # Parametr stanowiący dolny limit rozmiaru obiektów
     out_of_frame = 0.3  # Parametr wychodzenia obiektu poza obszar obrazu (Uwaga, obecnie za niski powoduje błąd)
     printing_ob_list = False  # Decyzja o wyświetleniu parametrów wygenerowanych obiektów
-    saving = True  # Decyzja o zapisie wszystkich wygenerowanych wariacji obiektów do pliku
+    saving = False  # Decyzja o zapisie wszystkich wygenerowanych wariacji obiektów do pliku
     reduce_pic_size = 3  # Dzielnik rozmiaru obrazu
 
     generating(n_objects_for_im, n_generations, n_objects_survive, n_objects_children, ob_min_size_per, out_of_frame,
