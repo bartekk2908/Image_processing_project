@@ -2,6 +2,7 @@ import glob
 from PIL import Image
 import numpy as np
 
+
 FPATH = "generated_im/*.png"
 ENDING_FRAMES = 50
 FRAME_TIME = 110

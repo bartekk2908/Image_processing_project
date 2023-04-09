@@ -82,7 +82,7 @@ def generating(n_objects_for_im, n_generations, n_objects_survive, n_objects_chi
                 quit()
     pic = Image.open(FPATH)
     pic = pic.resize((pic.size[0]//reduce_pic_size, pic.size[1]//reduce_pic_size))
-    pic.show()
+    # pic.show()
     pic.convert("RGBA")
     pic_size = pic.size
     pix_pic = pic.load()
@@ -123,10 +123,16 @@ def generating(n_objects_for_im, n_generations, n_objects_survive, n_objects_chi
                   "reduce_pic_size": reduce_pic_size,
                   "pic_size": pic_size,
                   }
-
+    if not os.path.exists("generated_im"):
+        os.mkdir("generated_im")
     with open("generated_im/run_params", "wb") as f:
         pickle.dump(run_params, f)
 
+    # Utworzenie folderu z na populacje
+    if not os.path.exists("population"):
+        os.mkdir("population")
+
+    # Główna pętla
     for h in range(n_objects_for_im):
 
         # Lista z populacją obiektów
@@ -253,7 +259,7 @@ if __name__ == "__main__":
     ob_min_size_per = 0.006  # Parametr stanowiący dolny limit rozmiaru obiektów
     out_of_frame = 0.3  # Parametr wychodzenia obiektu poza obszar obrazu (Uwaga, obecnie za niski powoduje błąd)
     printing_ob_list = False  # Decyzja o wyświetleniu parametrów wygenerowanych obiektów
-    saving = False  # Decyzja o zapisie wszystkich wygenerowanych wariacji obiektów do pliku
+    saving = True  # Decyzja o zapisie wszystkich wygenerowanych wariacji obiektów do pliku
     reduce_pic_size = 3  # Dzielnik rozmiaru obrazu
 
     generating(n_objects_for_im, n_generations, n_objects_survive, n_objects_children, ob_min_size_per, out_of_frame,
